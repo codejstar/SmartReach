@@ -1,4 +1,4 @@
-package com.contactmanager.smartcontactmanager.Entity;
+package com.contactmanager.smartcontactmanager.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,7 +21,7 @@ public class Contact {
     private String email;
     private String phone;
     private String image;
-    @Column(length = 50000)
+    @Column(length = 500)
     private String description;
 
     @ManyToOne
@@ -97,6 +97,13 @@ public class Contact {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact [cid=" + cid + ", name=" + name + ", secondName=" + secondName + ", work=" + work + ", email="
+                + email + ", phone=" + phone + ", image=" + image + ", description=" + description + ", user=" + user
+                + "]";
     }
 
 }

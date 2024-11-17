@@ -1,4 +1,4 @@
-package com.contactmanager.smartcontactmanager.Entity;
+package com.contactmanager.smartcontactmanager.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +32,12 @@ public class User {
 
     // build a mapping one to many
     // unidirectional mapping
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private List<Contact> contacts = new ArrayList<>();
 
     public User() {
         super();
-
+        
     }
 
     public int getId() {
@@ -110,6 +110,12 @@ public class User {
 
     public void setContacts(List<Contact> contacts) {
         this.contacts = contacts;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
+                + ", active=" + active + ", imageUrl=" + imageUrl + ", about=" + about + ", contacts=" + contacts + "]";
     }
 
 }
